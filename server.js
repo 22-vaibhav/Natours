@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-dotenv.config({ path: `${__dirname}/config.env` });
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: './config.env' });
+}
 
 const Tour = require(`${__dirname}/models/tourModel`)
 
