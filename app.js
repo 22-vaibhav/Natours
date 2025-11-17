@@ -20,6 +20,9 @@ const globalErrorHandler = require(`${__dirname}/controllers/errorController`);
 // Start express app
 const app = express();
 
+// Tell Express it’s behind a proxy
+app.enable('trust proxy');
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
