@@ -9,8 +9,6 @@ const DB = process.env.DATABASE
 // connect to DB using mongoose:
 mongoose.connect(DB, {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
     useUnifiedTopology: true
 }).then(con => {
     // console.log(con.connections);
