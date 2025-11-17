@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 if (process.env.NODE_ENV !== 'production') {
-  dotenv.config({ path: './config.env' });
+    dotenv.config({ path: './config.env' });
 }
 
 const Tour = require(`${__dirname}/models/tourModel`)
@@ -45,3 +45,11 @@ process.on('unhandledRejection', err => {
         process.exit(1);
     })
 })
+
+// SIGTERM 
+process.on('SIGTERM', () => {
+    console.log('👋 SIGTERM RECEIVED. Shutting down gracefully');
+    server.close(() => {
+        console.log('💥 Process terminated!');
+    });
+});
