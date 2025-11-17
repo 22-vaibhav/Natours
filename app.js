@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const tourRouter = require(`${__dirname}/routes/tourRoutes`);
 const userRouter = require(`${__dirname}/routes/userRoutes`);
@@ -27,6 +28,17 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // GLOBAL MIDDLEWARES:
+
+// Implement CORS
+app.use(cors());// this is for simple requests like get/post
+// Access-Control-Allow-Origin *
+// api.natours.com, front-end natours.com
+// app.use(cors({
+//   origin: 'https://www.natours.com'
+// }))
+
+app.options('*', cors());// this is for non simple request like put/patch/delete/cookies
+// app.options('/api/v1/tours/:id', cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
