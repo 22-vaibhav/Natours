@@ -54,7 +54,7 @@ const deleteData = async () => {
     process.exit();
 }
 
-console.log(process.argv);
+// console.log(process.argv);
 // COMMAND: node import-dev-data.js --import, then process.argv will give me an array of values and the 3rd value contains this '--import' as a string value. So we will use it to call the function inside through command line and not just calling the function inside the js file.
 
 if(process.argv[2] === "--import") importData();
