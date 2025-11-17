@@ -5,6 +5,7 @@ dotenv.config({path: `${__dirname}/config.env`});
 const Tour = require(`${__dirname}/models/tourModel`)
 
 const DB = process.env.DATABASE
+console.log('DATABASE:', DB);
 
 // connect to DB using mongoose:
 mongoose.connect(DB, {
